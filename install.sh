@@ -1,6 +1,10 @@
 #!/bin/bash
 # some kind of selection interface
-device="$(ls /dev/disk/by-id/)"
+device = ""
+select x in $(ls /dev/disk/by-id); do
+    device="$x"
+    break
+done
 
 nixos-generate-config --no-filesystems --dir .
 rm configuration.nix
