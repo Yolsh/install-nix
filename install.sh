@@ -13,4 +13,5 @@ git add *
 sed -i "s/<id-here>/$device/g" nixos/disko.nix
 
 sudo nix --extra-experimental-features "nix-command flakes" run 'github:nix-community/disko/latest#disko-install' -- --mode destroy,format,mount --flake .#nixos
+nix-collect-garbage
 sudo nixos-install --flake .#nixos
