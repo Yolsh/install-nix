@@ -1,31 +1,28 @@
 {
   preservation = {
-    enable = true;
+        enable = true;
 
-    preserveAt."/persistent" = {
-      directories = [
-        "/etc/nixos"
-        "/var/lib/bluetooth"
-        { directory = "/var/lib/nixos"; inInitrd = true; }
-      ];
+        preserveAt."/persistent" = {
+            files = [
+                { file = "/etc/machine-id"; inInitrd = true; }
+            ];
+            
+            directories = [
+                "/var/lib/timers"
+                "/var/lib/nixos"
+                "/var/log"
+                "/var/lib/bluetooth"
+                "/etc/NetworkManager/system-connections"
+                "/tmp"
+            ];
 
-      files = [
-        {
-          file = "/etc/machine-id";
-          inInitrd = true;
-        }
-      ];
-
-      users."yolsh" = {
-        directories = [
-          "Documents"
-          ".nixconf"
-        ];
-      
-        files = [
-      
-        ];
-      };
+            users.yolsh = {
+                files = [];
+                directories = [
+                    ".nixconf"
+                    "Documents"
+                ];
+            };
+        };
     };
-  };
 }
