@@ -1,6 +1,6 @@
 {
       fileSystems."/nix".neededForBoot = true;
-      fileSystem."/persistent".neededForBoot = true;
+      fileSystems."/persistent".neededForBoot = true;
 
       disko.devices = {
           disk.main = {
