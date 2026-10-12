@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/run/current-system/sw/bin/bash
 # some kind of selection interface
 device = ""
 select x in $(ls /dev/disk/by-id); do
