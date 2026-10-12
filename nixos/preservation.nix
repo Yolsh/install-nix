@@ -6,10 +6,7 @@
       directories = [
         "/etc/nixos"
         "/var/lib/bluetooth"
-        {
-          directory = "/var/lib/nixos";
-          inInitrd = true;
-        }
+        { directory = "/var/lib/nixos"; inInitrd = true; }
       ];
 
       files = [
@@ -22,7 +19,7 @@
       users."yolsh" = {
         directories = [
           "Documents"
-          "nixos"
+          ".nixconf"
         ];
       
         files = [
