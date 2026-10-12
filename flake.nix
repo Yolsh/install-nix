@@ -16,9 +16,9 @@
       modules = [
         inputs.disko.nixosModules.disko
         inputs.preservation.nixosModules.default
-        ./configuration.nix
-        ./disko.nix
-        ./preservation.nix
+        ./nixos/configuration.nix
+        ./nixos/disko.nix
+        ./nixos/preservation.nix
       ];
     };
   };
