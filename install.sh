@@ -1,2 +1,10 @@
 #!/bin/bash
+# some kind of selection interface
+device="$(ls /dev/disk/by-id/)"
+
 nixos-generate-config --no-filesystems --dir .
+rm configuration.nix
+mv hardware-configuration.nix nixos/
+git add *
+sed -i 's/<id-here>/$device/g' nixos/disko.nix
+sudo nix --extra-experimental-features "nix-command flakes" run 'github:nix-community/disko/latest#disko-install' -- --flake nixos#nixos --disk main '/dev/disk/by-id/$device'
