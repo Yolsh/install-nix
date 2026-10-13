@@ -17,7 +17,7 @@
 
   users.users."yolsh" = {
     isNormalUser = true;
-    initialPassword = "12345";
+    hashedPasswordFile = "/persistent/passwd";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       
