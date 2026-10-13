@@ -7,7 +7,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    preservation.url = "github:nix-community/preservation";
+    impermanence = {
+      url = "github:nix-community/impermanence";
+      inputs.nixpkgs.follows = "";
+      inputs.home-manager.follows = "";
+    };
   };
 
   outputs = inputs: {
@@ -15,7 +19,7 @@
       system = "x86_64-linux";
       modules = [
         inputs.disko.nixosModules.disko
-        inputs.preservation.nixosModules.default
+        inputs.impermanence.nixosModules.default
         ./nixos/configuration.nix
         ./nixos/disko.nix
         ./nixos/preservation.nix
